@@ -30,7 +30,7 @@ y // y still 1
 
 /* --------------------------- */
 
-// 2. Errors and optionals
+// 2. Errors
 struct User {
     let username: String
     var isVisible: Bool = true
@@ -65,3 +65,100 @@ do {
 var allUsers = [
     "alice": alice
 ]
+
+// 2. Optionals
+func findUser(_ username: String) -> User? { // ? = Optional value
+    allUsers[username]
+}
+
+print(findUser("alice") == nil ? "Founded" : "Not found")
+
+if let charlie = findUser("charlie") {
+    print("Fount \(charlie)")
+} else {
+    print(("Charlie not found"))
+}
+
+// let dash = findUser("dash")! // Force unwrapping error
+
+// Optional handling method
+/*
+    1. Optional binding (if let & guard let)
+    2. Nil coalescing operator (??)
+    3. Forced unwrapping (!)
+    4. Optional chaining
+*/
+
+/* --------------------------- */
+
+// 3. Code organization
+// Swift access control levels
+/*
+    1. private (in the same file)
+    2. internal (in the same module)
+    3. package (in the same package)
+    4. public (all)
+*/
+
+/* --------------------------- */
+// 4. Classes
+class Pet {
+    var toy: Toy?
+    func speak() {}
+}
+
+class Cat: Pet {
+    override func speak() { print("meow") }
+    func purr() { print("purr") }
+}
+
+class Dog: Pet {
+    override func speak() { print("hug..hug") }
+    func purr() { print("purr..purr") }
+}
+
+class Toy {}
+
+let pet: Pet = Cat()
+pet.speak()
+
+// true
+if let cat = pet as? Cat { // Change pet to cat
+    cat.purr()
+}
+
+// false
+if let cat2 = pet as? Dog { // Change pet to dog
+    cat2.purr()
+} else {
+    print("This animal is not a dog") // This in done because the pet is not a dog but a cat
+}
+
+// Strong reference and Weak reference
+class Example {
+    var value: Int = 0
+    init(value: Int) {
+        self.value = value
+        print("value created")
+    }
+    deinit {
+        print("value deallocated")
+    }    
+}
+
+var strongRef: Example? = Example(value: 50) // Strong ref created
+// Weak reference
+weak var weakRef = strongRef // Weak ref created
+// Strong reference
+var newStrongRef = strongRef // Strong ref created
+
+strongRef = nil // ARC deleted strongRef
+weakRef?.value // ARC will retain
+newStrongRef?.value // New strong reference
+
+newStrongRef = nil // ARC deleted newStrongRef
+weakRef?.value // ARC will release the value
+
+/* --------------------------- */
+// 5. Protocols
+
