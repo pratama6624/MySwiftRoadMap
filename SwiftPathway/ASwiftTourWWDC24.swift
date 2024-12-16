@@ -243,6 +243,7 @@ extension Int {
 let number = 42
 print(number.isOdd)
 print(number.isEven)
+print("")
 
 // Collections
 /*
@@ -255,3 +256,19 @@ print(number.isEven)
 /* --------------------------- */
 
 // 6. Concurrency
+// Async / Await
+func fetchData() async -> String {
+    print("Start capturing data...")
+    try? await Task.sleep(nanoseconds: 2_000_000_000) // delay 2s
+    return "Data successfully retrieved"
+}
+
+func proccess() async {
+    print("Starting the process...")
+    let data = await fetchData()
+    print("Process with data: \(data)")
+}
+
+Task {
+    await proccess()
+}
