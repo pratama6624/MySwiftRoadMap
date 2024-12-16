@@ -161,4 +161,23 @@ weakRef?.value // ARC will release the value
 
 /* --------------------------- */
 // 5. Protocols
+// Protocol is an interface in Java language
+// Contract
+protocol ScreenViewModel {
+    var title: String { get }
+    func fetchContent()
+}
 
+class HomeViewModel: ScreenViewModel {
+    var title = "Home View"
+    func fetchContent() {
+        print("Fetching home content")
+    }
+}
+
+class ProfileViewModel: ScreenViewModel {
+    var title = "Profile View"
+    func fetchContent() {
+        print("Fetching profile content")
+    }
+}
