@@ -101,6 +101,7 @@ if let charlie = findUser("charlie") {
 */
 
 /* --------------------------- */
+
 // 4. Classes
 class Pet {
     var toy: Toy?
@@ -160,6 +161,7 @@ newStrongRef = nil // ARC deleted newStrongRef
 weakRef?.value // ARC will release the value
 
 /* --------------------------- */
+
 // 5. Protocols
 // Protocol is an interface in Java language
 // Contract
@@ -211,3 +213,45 @@ print("\nCall Drawables")
 render(drawables: shape)
 
 // Example 3
+protocol AuthService {
+    func login(username: String, password: String, completion: (Bool) -> Void)
+    func logout()
+}
+
+class FirebaseAuthService: AuthService {
+    func login(username: String, password: String, completion: (Bool) -> Void) {
+        // Firebase login here
+    }
+    
+    func logout() {
+        // Firebase logout here
+    }
+}
+
+// Extension
+// Extension does not have the function is odd and is even
+// But we can add that functionality to Int with the extension
+extension Int {
+    var isEven: Bool {
+        return self % 2 == 0
+    }
+    var isOdd: Bool {
+        return !isEven
+    }
+}
+
+let number = 42
+print(number.isOdd)
+print(number.isEven)
+
+// Collections
+/*
+     1. Array
+     2. Dictionary
+     3. Set
+     4. String
+*/
+
+/* --------------------------- */
+
+// 6. Concurrency
