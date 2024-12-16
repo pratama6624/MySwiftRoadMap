@@ -163,6 +163,7 @@ weakRef?.value // ARC will release the value
 // 5. Protocols
 // Protocol is an interface in Java language
 // Contract
+// Example 1
 protocol ScreenViewModel {
     var title: String { get }
     func fetchContent()
@@ -181,3 +182,32 @@ class ProfileViewModel: ScreenViewModel {
         print("Fetching profile content")
     }
 }
+
+// Example 2
+protocol Drawable {
+    func draw()
+}
+
+class Circle: Drawable {
+    func draw() {
+        print("Drawing Circle")
+    }
+}
+
+class Rectangle: Drawable {
+    func draw() {
+        print("Drawing Rectangle")
+    }
+}
+
+func render(drawables: [Drawable]) {
+    for drawable in drawables {
+        drawable.draw()
+    }
+}
+
+let shape: [Drawable] = [Circle(), Rectangle()]
+print("\nCall Drawables")
+render(drawables: shape)
+
+// Example 3
