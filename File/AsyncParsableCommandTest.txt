@@ -1,0 +1,4 @@
+
+Hi, this is a sample file for testing AsyncParsableCommand.
+This file contains simple text for your Swift program to read.
+Hope your test works!
