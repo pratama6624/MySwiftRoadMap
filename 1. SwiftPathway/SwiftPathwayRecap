@@ -1,4 +1,4 @@
-1. A Swift Tour WWDC 24
+1. A Swift Tour WWDC24
     - Value Types
     - Errors and Optionals
     - Code Organization
@@ -10,4 +10,6 @@
         * Result Builders
         * Macros
 
-2. 
+2. Design Protocol Interfaces WWDC22
+    - Type Erasure
+    - 
