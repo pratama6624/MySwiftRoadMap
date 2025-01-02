@@ -11,3 +11,8 @@
 - Self
 - Optionals
 - FizzBuzz
+- UIColor
+- Colors App: UITableView
+- Colors App: Logic
+- Card Workout App: Intro
+- 
